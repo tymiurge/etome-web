@@ -1,0 +1,10 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#0704A1",
+    "titleBar.activeBackground": "#0A06E1",
+    "titleBar.activeForeground": "#FDFDFF"
+  },
+  "cSpell.words": [
+    "blueprintjs"
+  ]
+}
