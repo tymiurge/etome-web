@@ -1,5 +1,6 @@
-import React, { ReactNode } from 'react';
-import { Button, Menu, MenuDivider, MenuItem, Popover, Position } from "@blueprintjs/core";
+import React from 'react';
+import { Button, Menu, MenuDivider, MenuItem, Popover, Position, Breadcrumbs, IBreadcrumbProps} from "@blueprintjs/core";
+import styles from './ScreenHeader.module.scss';
 // import './styles.scss';
 
 // interface ILayoutProps {
@@ -8,7 +9,7 @@ import { Button, Menu, MenuDivider, MenuItem, Popover, Position } from "@bluepri
 //   footer?: ReactNode,
 // };
 
-const ScreenHeader: any = () => {
+const ScreenHeader: React.FunctionComponent = () => {
   const exampleMenu: JSX.Element = (
     <Menu>
         <MenuItem icon="graph" text="Graph" />
@@ -22,19 +23,28 @@ const ScreenHeader: any = () => {
         </MenuItem>
     </Menu>
   );
+  const BREADCRUMBS: IBreadcrumbProps[] = [
+    { href: "/users", icon: "folder-close", text: "Users" },
+    { href: "/users/janet", icon: "folder-close", text: "Janet" },
+    { icon: "document", text: "image.jpg" },
+];
   return (
     <div className="lists-screen-header">
-      <div className="container">
+      <div className={styles.container}>
         {/* drop box here */}
         <Popover content={exampleMenu} position={Position.RIGHT_BOTTOM}>
-          <Button icon="share" text="Open in..." />
+          <Button icon="double-chevron-right" />
         </Popover>
         {/* breadcrumb here  */}
+        <Breadcrumbs items={BREADCRUMBS}/>
         {/* buttons on the right:
           - profile
           - settings
           - trash
          */}
+         <Button icon="user" />
+         <Button icon="cog" />
+         <Button icon="trash" />
       </div>
     </div>
   );

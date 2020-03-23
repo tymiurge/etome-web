@@ -1,15 +1,16 @@
-import React, { ReactNode } from 'react';
-import './styles.scss';
+import React, { ReactNode, ReactElement } from 'react';
+import styles from './Layout.module.scss';
 
 interface ILayoutProps {
-  header: ReactNode,
+  header: ReactElement,
   body: ReactNode,
   footer?: ReactNode,
 };
 
 const Layout: React.FunctionComponent<ILayoutProps> = ({header}) => {
+  console.info(styles)
   return (
-    <div className="container">
+    <div className={styles.container}>
       {React.cloneElement(header)}
     </div>
   );
