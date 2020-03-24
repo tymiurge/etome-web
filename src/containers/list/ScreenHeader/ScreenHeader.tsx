@@ -12,15 +12,17 @@ import styles from './ScreenHeader.module.scss';
 const ScreenHeader: React.FunctionComponent = () => {
   const exampleMenu: JSX.Element = (
     <Menu>
-        <MenuItem icon="graph" text="Graph" />
-        <MenuItem icon="map" text="Map" />
-        <MenuItem icon="th" text="Table" shouldDismissPopover={false} />
-        <MenuItem icon="zoom-to-fit" text="Nucleus" disabled={true} />
+        <MenuItem icon="eye-open" text="Browse" />
+        <MenuItem icon="trash" text="Deleted items" />
         <MenuDivider />
-        <MenuItem icon="cog" text="Settings...">
-            <MenuItem icon="add" text="Add new application" disabled={true} />
-            <MenuItem icon="remove" text="Remove application" />
-        </MenuItem>
+        <MenuItem icon="cog" text="Settings" />
+    </Menu>
+  );
+  const profileMenu: JSX.Element = (
+    <Menu>
+        <MenuItem icon="user" text="Profile" />
+        <MenuDivider />
+        <MenuItem icon="log-out" text="Log out" />
     </Menu>
   );
   const BREADCRUMBS: IBreadcrumbProps[] = [
@@ -29,22 +31,28 @@ const ScreenHeader: React.FunctionComponent = () => {
     { icon: "document", text: "image.jpg" },
 ];
   return (
-    <div className="lists-screen-header">
-      <div className={styles.container}>
-        {/* drop box here */}
-        <Popover content={exampleMenu} position={Position.RIGHT_BOTTOM}>
-          <Button icon="double-chevron-right" />
-        </Popover>
-        {/* breadcrumb here  */}
-        <Breadcrumbs items={BREADCRUMBS}/>
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
+        <div className={styles.mainPart}>
+          {/* drop box here */}
+          <Popover content={exampleMenu} position={Position.BOTTOM}>
+            <Button className={styles.rightIntend}icon="menu" />
+          </Popover>
+          {/* breadcrumb here  */}
+          <Breadcrumbs items={BREADCRUMBS}/>
+        </div>
+        
         {/* buttons on the right:
           - profile
           - settings
           - trash
          */}
-         <Button icon="user" />
-         <Button icon="cog" />
-         <Button icon="trash" />
+         <div className={styles.rightSide}>
+          <Popover content={profileMenu} position={Position.BOTTOM}>
+           <Button icon="user" />
+          </Popover>
+         </div>
+         
       </div>
     </div>
   );
