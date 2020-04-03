@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from './components/Layout';
 import ListsHeader from './containers/list/ScreenHeader';
+import ListFooter from './containers/list/Footer';
 
 import '@blueprintjs/core/lib/css/blueprint.css';
 // @import "~normalize.css";
@@ -13,6 +14,7 @@ function App() {
       header={<ListsHeader />}
       // header={<div>BB</div>}
       body={<div>body</div>}
+      footer={<ListFooter />}
     />
   );
 }

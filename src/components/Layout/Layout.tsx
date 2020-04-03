@@ -4,14 +4,14 @@ import styles from './Layout.module.scss';
 interface ILayoutProps {
   header: ReactElement,
   body: ReactNode,
-  footer?: ReactNode,
+  footer: ReactElement,
 };
 
-const Layout: React.FunctionComponent<ILayoutProps> = ({header}) => {
-  console.info(styles)
+const Layout: React.FunctionComponent<ILayoutProps> = ({header, footer}) => {
   return (
     <div className={styles.container}>
       {React.cloneElement(header)}
+      {React.cloneElement(footer)}
     </div>
   );
 };
