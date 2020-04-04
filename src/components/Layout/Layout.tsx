@@ -1,4 +1,4 @@
-import React, { ReactNode, ReactElement } from 'react';
+import React, { ReactNode, ReactElement, useState, useEffect, useRef } from 'react';
 import styles from './Layout.module.scss';
 
 interface ILayoutProps {
@@ -7,11 +7,43 @@ interface ILayoutProps {
   footer: ReactElement,
 };
 
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
+}
+
 const Layout: React.FunctionComponent<ILayoutProps> = ({header, footer}) => {
+  const headerRef = useRef(null) as unknown as React.MutableRefObject<HTMLDivElement>;
+  const footerRef = useRef(null) as unknown as React.MutableRefObject<HTMLDivElement>;
+  const [headerHeight, setHeaderHeight] = useState(0);
+  const [footerHeight, setFooterHeight] = useState(0);
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+  // useEffect(() => {
+  //   function handleResize() {
+  //     setWindowDimensions(getWindowDimensions());
+  //   }
+
+  //   window.addEventListener('resize', handleResize);
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, []);
+  useEffect(() => {
+    setHeaderHeight(headerRef.current.clientHeight);
+    setFooterHeight(footerRef.current.clientHeight);
+  });
   return (
     <div className={styles.container}>
-      {React.cloneElement(header)}
-      {React.cloneElement(footer)}
+      <div ref={headerRef}>
+        {React.cloneElement(header)}
+      </div>
+      {headerHeight > 0 && footerHeight > 0 && (
+        <div style={{width: '100%', height: `${windowDimensions.height - headerHeight - footerHeight}px`, backgroundColor: 'aqua'}}></div>
+      )}
+      <div ref={footerRef}>
+        {React.cloneElement(footer)}
+      </div>
     </div>
   );
 };
