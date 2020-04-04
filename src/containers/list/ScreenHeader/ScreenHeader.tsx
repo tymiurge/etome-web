@@ -35,8 +35,8 @@ const ScreenHeader: React.FunctionComponent = () => {
       <div className={styles.wrapper}>
         <div className={styles.mainPart}>
           {/* drop box here */}
-          <Popover content={exampleMenu} position={Position.BOTTOM}>
-            <Button className={styles.rightIntend}icon="menu" />
+          <Popover content={exampleMenu} position={Position.BOTTOM_LEFT}>
+            <Button className={styles.rightIntend} icon="menu" />
           </Popover>
           {/* breadcrumb here  */}
           <Breadcrumbs items={BREADCRUMBS}/>
