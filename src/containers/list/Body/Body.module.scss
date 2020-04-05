@@ -1,4 +1,5 @@
 @import '../../../styles/vars/borders.scss';
+@import '../../../styles/vars/backgrounds.scss';
 
 .container {
   display: flex;
@@ -8,4 +9,8 @@
   padding: 8px;
   border-right: $containerBorder;
   border-left: $containerBorder;
+  background: $secondary;
+  .flexSection {
+    flex: 1;
+  }
 }
