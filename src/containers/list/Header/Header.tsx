@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Menu, MenuDivider, MenuItem, Popover, Position, Breadcrumbs, IBreadcrumbProps} from "@blueprintjs/core";
-import styles from './ScreenHeader.module.scss';
+import styles from './Header.module.scss';
 // import './styles.scss';
 
 // interface ILayoutProps {
@@ -12,17 +12,24 @@ import styles from './ScreenHeader.module.scss';
 const ScreenHeader: React.FunctionComponent = () => {
   const exampleMenu: JSX.Element = (
     <Menu>
-        <MenuItem icon="eye-open" text="Browse" />
-        <MenuItem icon="trash" text="Deleted items" />
-        <MenuDivider />
-        <MenuItem icon="cog" text="Settings" />
+      <MenuItem icon="layers" text="Decks" />
+      <MenuItem icon="automatic-updates" text="Programs" />
+      <MenuItem icon="eye-open" text="All memos" />
+      <MenuItem icon="chart" text="Statistic" />
+      <MenuDivider />
+      <MenuItem icon="document-open" text="Templates" />
+      <MenuDivider />
+      <MenuItem icon="trash" text="Deleted items" />
+      <MenuDivider />
+      <MenuItem icon="user" text="Profile" />
+      <MenuItem icon="cog" text="Settings" />
     </Menu>
   );
   const profileMenu: JSX.Element = (
     <Menu>
-        <MenuItem icon="user" text="Profile" />
-        <MenuDivider />
-        <MenuItem icon="log-out" text="Log out" />
+      <MenuItem icon="user" text="Profile" />
+      <MenuDivider />
+      <MenuItem icon="log-out" text="Log out" />
     </Menu>
   );
   const BREADCRUMBS: IBreadcrumbProps[] = [
@@ -48,7 +55,7 @@ const ScreenHeader: React.FunctionComponent = () => {
           - trash
          */}
          <div className={styles.rightSide}>
-          <Popover content={profileMenu} position={Position.BOTTOM}>
+          <Popover content={profileMenu} position={Position.BOTTOM_RIGHT}>
            <Button icon="user" />
           </Popover>
          </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from './components/Layout';
-import ListsHeader from './containers/list/ScreenHeader';
+import ListsHeader from './containers/list/Header';
 import ListFooter from './containers/list/Footer';
 import ListBody from './containers/list/Body';
 
