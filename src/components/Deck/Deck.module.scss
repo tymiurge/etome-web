@@ -1,0 +1,29 @@
+.container {
+  margin-bottom: 20px;
+
+  border: 1px solid rgba(213,	215,	216, 1);
+  border-radius: 3px;
+  background: white;
+  display: flex;
+  .statusBar {
+    width: 8px;
+    border-right: 1px solid rgba(213,	215,	216, 1);
+    background-color: greenyellow;
+  }
+  .wrapper {
+    display: flex;
+    width: 100%;
+    .content {
+      flex: 1;
+      .tags {
+        border-top: 1px solid rgba(213,	215,	216, 1);
+      }
+    }
+    .operations {
+      width: 48px;
+      border-left: 1px solid rgba(213,	215,	216, 1);
+      background-color: lightskyblue;
+    }
+  }
+
+}

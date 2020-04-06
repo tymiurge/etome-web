@@ -1,4 +1,4 @@
-import React, { ReactNode, ReactElement, useState, useEffect, useRef } from 'react';
+import React, { ReactElement, useState, useEffect, useRef } from 'react';
 import styles from './Layout.module.scss';
 
 interface ILayoutProps {
