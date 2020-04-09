@@ -16,7 +16,10 @@
     .content {
       flex: 1;
       .stat {
-        width: 50px;
+        display: flex;
+        .statItem {
+          margin-right: 8px;
+        };
       }
       .tags {
         border-top: 1px solid rgba(213,	215,	216, 1);

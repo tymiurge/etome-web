@@ -7,10 +7,11 @@ type MetricValue =  'blue' | 'green' | 'red' | 'yellow';
 interface IBadgeProps {
   value: number,
   color?: MetricValue,
+  className?: string,
 };
 
-const Badge: React.FunctionComponent<IBadgeProps> = ({value, color = 'blue'}) => {
-  return <div className={classNames([styles.badge, styles[color]])}>
+const Badge: React.FunctionComponent<IBadgeProps> = ({value, color = 'blue', className = ''}) => {
+  return <div className={classNames([styles.badge, styles[color], className])}>
     <div className={styles.text}>{value}</div>
   </div>
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Callout, Code, H5, Intent, Switch } from "@blueprintjs/core";
-import { Callout, Intent } from '@blueprintjs/core';
+import MetricBadge from '../MetricBadge'
 import styles from './Deck.module.scss';
 
 const Deck = () => {
@@ -11,7 +11,9 @@ const Deck = () => {
         <div>name</div>
         <div>
           <div className={styles.stat}>
-            <Callout intent={Intent.PRIMARY}>140</Callout>
+            <MetricBadge className={styles.statItem} value={150}/>
+            <MetricBadge className={styles.statItem} value={449} color="green" />
+            <MetricBadge value={449} color="red" />
           </div>
         </div>
         <div className={styles.tags}>tags</div>
